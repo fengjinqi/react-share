@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import Share from './components/Share'
 import './App.css';
+import './static/css/share.min.css'
+class App extends React.Component{
+  render() {
+    return(
+        <div style={{margin:200}}>
+            <Share
+            title={document.title}
+            url={window.location.href}
+            origin={window.location.href}
+            image={document.images[0]?document.images[0].src:''}
+            description={document.getElementsByName('description')[0].getAttribute('content')}
+            sites={ ['weibo','qq','wechat','douban','qzone']}
+        />
+        </div>
+    )
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
 }
 
 export default App;
